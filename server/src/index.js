@@ -6,7 +6,7 @@ import {logger} from './util';
 app.listen(8080, function() { // lexical scoping, can't use arrow function and be able to access app variable via this
   const host = this.address().address;
   const port = this.address().port;
-  logger.info(`Flitter-server started on http://${host}:${port}; press Ctrl-C to terminate.`);
+  logger.info(`flitter-server started on http://${host}:${port}; press Ctrl-C to terminate.`);
 });
 
 // output all uncaught exceptions
