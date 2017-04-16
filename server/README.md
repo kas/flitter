@@ -6,19 +6,20 @@
   * postgres image
     * `docker pull postgres`
 
-# To run the server, cd to the server directory and run:
+# To create the database
+`npm run db:create`
+
+# To start the database
 `npm run db:start`
 
+# To start the server
 `npm start`
 
 # To stop the server
 `Ctrl+C`
 
+# To stop the database
 `npm run db:stop`
 
-# When restarting the server
+# To remove the database
 `npm run db:rm`
-
-`npm run db:start`
-
-`npm start`
