@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "db:start": "docker run -d -p 5432:5432 --name flitterdb postgres",
+    "db:stop": "docker stop flitterdb",
+    "db:rm": "docker rm flitterdb"
   },
   "author": "",
   "license": "ISC",
