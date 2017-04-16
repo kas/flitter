@@ -1,6 +1,12 @@
 # flitter
 A Twitter clone
 
+# Requirements
+* Node.js v6.10.2 LTS or greater
+* Docker
+  * postgres image
+    * `docker pull postgres`
+
 # To run the server, cd to the server directory and run:
 `npm run db:start`
 
