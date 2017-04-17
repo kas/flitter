@@ -1,6 +1,16 @@
 {
   "parser": "babel-eslint",
   "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "globals": {
+    "shallow": true,
+    "render": true,
+    "mount": true,
+    "API_HOST": true
+  },
   "rules": {
     "object-curly-spacing": ["warn", "never"],
     "func-names": "off",
@@ -8,10 +18,8 @@
     "max-len": ["error", 120, 4],
     "no-unused-vars": ["error", {"argsIgnorePattern": "next"}],
     "import/prefer-default-export": "off",
-    "comma-dangle": ["error", {
-      "arrays": "always-multiline",
-      "objects": "always-multiline",
-      "functions": "ignore"
-    }]
+    "react/jsx-filename-extension": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "jsx-a11y/anchor-has-content": ["error"]
   }
 }
