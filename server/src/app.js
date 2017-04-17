@@ -7,6 +7,8 @@ import path from 'path';
 
 // our packages
 import {logger} from './util';
+import pool from './db/pg';
+
 
 // init app
 const app = express();
@@ -23,18 +25,16 @@ app.set('port', process.env.PORT || 3000);
 
 // in Express, the order in which routes and middleware are added is important!
 
-app.use((req, res, next) => {
-  // if test=1 appers in the querystring for any page (and we're not running in production), the property res.locals.showTests is true
-  // res.locals is part of the context that is passed to views
-  res.locals.showTests = app.get('env') !== 'production' &&
-      req.query.test === '1';
-  next();
+app.get('/api/tweet', (req, res) => {
+  // get all tweets
+  pool.query('SELECT * FROM Pencil;', (err, result) => {
+    res.send(result.rows[0].name);
+  });
 });
 
-app.get('/', (req, res) => {
-  // res.type('text/plain'); // sets Content-Type header
-  // status code is 200 by default
-  // res.send('Meadowlark Travel'); // replaces Node's low-level res.end
+app.get('/api/tweet/:user', (req, res) => {
+  // get all tweets by user
+
 });
 
 app.get('/headers', (req, res) => {
