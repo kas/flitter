@@ -27,4 +27,5 @@
 
 # To remove the database
 `npm run db:rm`
-Remove the folder `server/db/`
+
+Remove the database volume mounted at `server/db/`
