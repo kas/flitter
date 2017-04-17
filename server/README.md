@@ -13,6 +13,8 @@
 `npm run db:start`
 
 # To start the server
+`npm install`
+
 `npm start`
 
 # To fill the database with accounts and tweets
