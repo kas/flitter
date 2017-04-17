@@ -15,6 +15,10 @@
 # To start the server
 `npm start`
 
+# To fill the database with accounts and tweets
+1. Visit http://localhost:8080/create
+2. Visit http://localhost:8080/insert
+
 # To stop the server
 `Ctrl+C`
 
