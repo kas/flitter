@@ -6,7 +6,7 @@ import morgan from 'morgan';
 import path from 'path';
 
 // our packages
-import { logger } from './util';
+import {logger} from './util';
 import pool from './db/pg';
 
 
@@ -139,23 +139,23 @@ app.get('/insert', (req, res) => {
     logger.info('Inserted AP account');
   });
 
-  pool.query('INSERT INTO TWEET (TweetNum, UName, Content) VALUES (1, \'AP\', \'Some British legislators want to revoke UK citizenship of Syrian president\'\'s wife, Asma Assad\');', (err, result) => {
+  pool.query('INSERT INTO TWEET (TweetNum, UName, Content) VALUES (16, \'AP\', \'Some British legislators want to revoke UK citizenship of Syrian president\'\'s wife, Asma Assad\');', (err, result) => {
     logger.info('Inserted AP tweet');
   });
 
-  pool.query('INSERT INTO TWEET (TweetNum, UName, Content) VALUES (2, \'AP\', \'Christians in Middle East celebrate Easter in midst of war, religious violence, discrimination\');', (err, result) => {
+  pool.query('INSERT INTO TWEET (TweetNum, UName, Content) VALUES (17, \'AP\', \'Christians in Middle East celebrate Easter in midst of war, religious violence, discrimination\');', (err, result) => {
     logger.info('Inserted AP tweet');
   });
 
-  pool.query('INSERT INTO TWEET (TweetNum, UName, Content) VALUES (3, \'AP\', \'Ex-governor of Mexico\'\'s Veracruz, detained in Guatemala on money laundering, organized crime charges\');', (err, result) => {
+  pool.query('INSERT INTO TWEET (TweetNum, UName, Content) VALUES (18, \'AP\', \'Ex-governor of Mexico\'\'s Veracruz, detained in Guatemala on money laundering, organized crime charges\');', (err, result) => {
     logger.info('Inserted AP tweet');
   });
 
-  pool.query('INSERT INTO TWEET (TweetNum, UName, Content) VALUES (4, \'AP\', \'The Latest: US says North Korea fired a medium-range missile and it exploded 4-5 seconds after launch\');', (err, result) => {
+  pool.query('INSERT INTO TWEET (TweetNum, UName, Content) VALUES (19, \'AP\', \'The Latest: US says North Korea fired a medium-range missile and it exploded 4-5 seconds after launch\');', (err, result) => {
     logger.info('Inserted AP tweet');
   });
 
-  pool.query('INSERT INTO TWEET (TweetNum, UName, Content) VALUES (5, \'AP\', \'U.S Military seeks civilians with high-tech skills in fight against Islamic State group\');', (err, result) => {
+  pool.query('INSERT INTO TWEET (TweetNum, UName, Content) VALUES (20, \'AP\', \'U.S Military seeks civilians with high-tech skills in fight against Islamic State group\');', (err, result) => {
     logger.info('Inserted AP tweet');
   });
 
