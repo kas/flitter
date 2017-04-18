@@ -6,7 +6,7 @@
   * postgres image
     * `docker pull postgres`
 
-## To create the database
+## To create and start the database
 `npm run db:create`
 
 ## To start the database
