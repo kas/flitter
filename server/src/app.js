@@ -24,7 +24,7 @@ app.set('port', process.env.PORT || 3000);
 
 app.get('/api/tweet', (req, res) => {
   // get all tweets
-  pool.query('SELECT * FROM TWEET;', (err, result) => {
+  pool.query('SELECT TWEET.UName, TWEET.Content, TWEET.TimeStamp, ACCOUNT.FullName FROM TWEET JOIN ACCOUNT ON TWEET.UName = ACCOUNT.Username;', (err, result) => {
     res.json(result.rows);
   });
 });
