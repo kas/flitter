@@ -8,7 +8,7 @@ const path = require('path');
 const dbPath = path.join(__dirname, '..', '..', 'db');
 
 // docker run command
-const cmd = `docker.exe run -d -p 5432:5432 -v ${dbPath}:/var/lib/postgresql/data --name flitterdb postgres`;
+const cmd = `docker.exe run -d -p 5432:5432 -v "${dbPath}:/var/lib/postgresql/data" --name flitterdb postgres`;
 
 // execute command
 const start = exec(cmd);
