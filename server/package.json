@@ -6,9 +6,13 @@
   "scripts": {
     "start": "node index.js",
     "db:create": "node util/db/create",
+    "db:create:win": "node util/db/createWin",
     "db:start": "docker start flitterdb",
+    "db:start:win": "docker.exe start flitterdb",
     "db:stop": "docker stop flitterdb",
-    "db:rm": "docker rm flitterdb"
+    "db:stop:win": "docker.exe stop flitterdb",
+    "db:rm": "docker rm flitterdb",
+    "db:rm:win": "docker.exe rm flitterdb"
   },
   "author": "",
   "license": "ISC",
