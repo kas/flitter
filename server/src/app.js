@@ -1,4 +1,5 @@
 // npm packages
+import cors from 'cors';
 import express from 'express';
 import morgan from 'morgan';
 
@@ -22,14 +23,14 @@ app.set('port', process.env.PORT || 3000);
 
 // in Express, the order in which routes and middleware are added is important!
 
-app.get('/api/tweet', (req, res) => {
+app.get('/api/tweet', cors(), (req, res) => {
   // get all tweets
   pool.query('SELECT TWEET.UName, TWEET.Content, TWEET.TimeStamp, ACCOUNT.FullName FROM TWEET JOIN ACCOUNT ON TWEET.UName = ACCOUNT.Username;', (err, result) => {
     res.json(result.rows);
   });
 });
 
-app.get('/api/tweet/:user', (req, res) => {
+app.get('/api/tweet/:user', cors(), (req, res) => {
   // get all tweets by user
   const user = req.params.user;
 
