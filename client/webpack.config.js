@@ -1,88 +1,33 @@
-const path = require('path');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var path = require('path');
 
-module.exports = {
-  devtool: 'cheap-module-source-map',
-  context: path.resolve(__dirname, 'src'),
-  entry: path.join(__dirname, 'src', 'index.js'),
+var SRC_DIR = path.resolve(__dirname, 'src');
+var DIST_DIR = path.resolve(__dirname, 'dist'); // where the transpiled file(s) will go
+
+var config = {
+  entry: SRC_DIR + '/app/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist/',
-    filename: 'app.min.js',
+    path: DIST_DIR + '/app',
+    filename: 'bundle.js',
+    publicPath: '/app/'
   },
-  resolve: {
-    modules: [path.resolve(__dirname), 'node_modules'],
-  },
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: 'static' }
+    ])
+  ],
   module: {
-    rules: [{
-      test: /\.css$/,
-      use: ['style-loader', {
-        loader: 'css-loader',
-        options: {
-          modules: true,
-        },
-      }],
-      exclude: /node_modules/,
-    }, {
-      test: /node_modules\/.+\.css$/,
-      use: ['style-loader', 'css-loader'],
-    }, {
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      options: {
-        cacheDirectory: true,
-        presets: ['es2015', 'react', 'stage-0'],
-        plugins: ['transform-runtime', 'lodash'],
-        env: {
-          development: {
-            presets: ['react-hmre'],
-          },
-          production: {
-            presets: ['react-optimize'],
-          },
-        },
-      },
-    }, {
-      test: /\.woff\d?(\?.+)?$/,
-      loader: 'url-loader',
-      options: {
-        limit: 10000,
-        mimetype: 'application/font-woff',
-      },
-    }, {
-      test: /\.ttf(\?.+)?$/,
-      loader: 'url-loader',
-      options: {
-        limit: 10000,
-        mimetype: 'application/octet-stream',
-      },
-    }, {
-      test: /\.eot(\?.+)?$/,
-      loader: 'url-loader',
-      options: {
-        limit: 10000,
-      },
-    }, {
-      test: /\.svg(\?.+)?$/,
-      loader: 'url-loader',
-      options: {
-        limit: 10000,
-        mimetype: 'image/svg+xml',
-      },
-    }, {
-      test: /\.png$/,
-      loader: 'url-loader',
-      options: {
-        limit: 10000,
-        mimetype: 'image/png',
-      },
-    }, {
-      test: /\.gif$/,
-      loader: 'url-loader',
-      options: {
-        limit: 10000,
-        mimetype: 'image/gif',
-      },
-    }],
-  },
+    loaders: [
+      {
+        test: /\.js?/,
+        include: SRC_DIR,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015', 'stage-2']
+        }
+      }
+    ]
+  }
 };
+
+module.exports = config;

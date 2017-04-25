@@ -1,0 +1,43 @@
+import React from 'react';
+import { Link } from 'react-router';
+
+export class Header extends React.Component {
+  render() {
+    var anchorStyle = {
+      color: 'inherit'
+    };
+
+    var headerStyle = {
+      backgroundImage: 'url(http://localhost:8080/app/header.jpg)',
+      backgroundSize: '100%',
+      color: 'white'
+    };
+
+    var listItemStyle = {
+      display: 'inline',
+      margin: '0 5px'
+    };
+
+    var listStyle = {
+      listStyleType: 'none'
+    };
+
+    return (
+      <div style={headerStyle}>
+        <div className="row">
+          <div className="small-9 columns">
+            <h3>Flitter</h3>
+          </div>
+
+          <div className="small-3 columns">
+            <ul style={listStyle}>
+              <li style={listItemStyle}><a style={anchorStyle}>Feed</a></li>
+              <li style={listItemStyle}><a style={anchorStyle}>Hashtags</a></li>
+              <li style={listItemStyle}><a style={anchorStyle}>About</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}

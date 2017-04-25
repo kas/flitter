@@ -7,7 +7,6 @@ import morgan from 'morgan';
 import { logger } from './util';
 import pool from './db/pg';
 
-
 // init app
 const app = express();
 
