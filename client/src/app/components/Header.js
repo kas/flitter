@@ -26,14 +26,14 @@ export class Header extends React.Component {
       <div style={headerStyle}>
         <div className="row">
           <div className="small-9 columns">
-            <h3>Flitter</h3>
+            <h3><Link to={'/'} style={anchorStyle}>Flitter</Link></h3>
           </div>
 
           <div className="small-3 columns">
             <ul style={listStyle}>
-              <li style={listItemStyle}><a style={anchorStyle}>Feed</a></li>
-              <li style={listItemStyle}><a style={anchorStyle}>Hashtags</a></li>
-              <li style={listItemStyle}><a style={anchorStyle}>About</a></li>
+              <li style={listItemStyle}><Link to={'/'} style={anchorStyle}>Feed</Link></li>
+              <li style={listItemStyle}><Link to={'/'} style={anchorStyle}>Hashtags</Link></li>
+              <li style={listItemStyle}><Link to={'/'} style={anchorStyle}>About</Link></li>
             </ul>
           </div>
         </div>

@@ -13,7 +13,7 @@ export class Tweet extends React.Component {
     return (
       <div style={tweetStyle} className="float-center">
         <h5>{this.props.fullname}</h5>
-        <p><a href={'user.html?uname=' + this.props.uname}>@{this.props.uname}</a></p>
+        <p><a href={'http://localhost:8080/' + this.props.uname}>@{this.props.uname}</a></p>
         <p>{this.props.timestamp}</p>
         <p>{this.props.content}</p>
       </div>
