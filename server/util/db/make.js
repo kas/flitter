@@ -19,7 +19,7 @@ let dbImage = false;
 // runs when command writes to stdout
 start.stdout.on('data', (data) => {
   if (data) {
-    console.log('Sucessfully created flitterdb\n');
+    console.log('Sucessfully made flitterdb\n');
   }
 });
 
@@ -29,6 +29,6 @@ start.stderr.on('data', (data) => {
     console.log(data);
     dbImage = true;
   } else {
-    console.log('Error while creating flitterdb:', data);
+    console.log('Error while making flitterdb:', data);
   }
 });

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "db:create": "node util/db/create",
+    "db:make": "node util/db/make",
     "db:start": "docker start flitterdb",
     "db:stop": "docker stop flitterdb",
     "db:rm": "docker rm flitterdb"

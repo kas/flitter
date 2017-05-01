@@ -32,7 +32,7 @@ export class Feed extends React.Component {
   render() {
     const tweets = this.state.tweets.map((tweet, i) => {
       return (
-        <Tweet key={i + tweet.content} fullname={tweet.fullname} uname={tweet.uname} timestamp={tweet.timestamp} content={tweet.content} />
+        <Tweet key={i + tweet.text} fullname={tweet.fullname} uname={tweet.username} timestamp={tweet.timestamp} content={tweet.text} />
       );
     });
 
