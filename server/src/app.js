@@ -4,7 +4,7 @@ import express from 'express';
 import morgan from 'morgan';
 
 // our packages
-import { logger } from './util';
+import {logger} from './util';
 import pool from './db/pg';
 
 // init app
@@ -13,7 +13,7 @@ const app = express();
 app.disable('x-powered-by');
 
 // set up logging
-app.use(morgan('combined', { stream: logger.stream }));
+app.use(morgan('combined', {stream: logger.stream}));
 
 // app.VERB in Express documentation
 // get and post are most common verbs
