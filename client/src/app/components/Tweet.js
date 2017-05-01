@@ -2,12 +2,12 @@ import React from 'react';
 
 export class Tweet extends React.Component {
   render() {
-    var tweetStyle = {
+    const tweetStyle = {
       width: 500,
       backgroundColor: 'white',
       borderStyle: 'solid',
       borderWidth: 1,
-      padding: '5px 0px'
+      padding: '5px 0px',
     };
 
     return (

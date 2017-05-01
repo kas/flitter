@@ -4,9 +4,9 @@ import {Header} from './Header';
 
 export class Root extends React.Component {
   render() {
-    return(
+    return (
       <div>
-        <Header/>
+        <Header />
         {this.props.children}
       </div>
     );

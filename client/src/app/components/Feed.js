@@ -15,6 +15,10 @@ export class Feed extends React.Component {
     this.TweetList();
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    this.TweetList();
+  }
+
   TweetList() {
     let url = 'http://localhost:8000/api/tweet';
 
@@ -43,7 +47,7 @@ export class Feed extends React.Component {
 
     const tweets = this.state.tweets.map((tweet, i) => {
       return (
-        <Tweet key={i + tweet.text} fullname={tweet.fullname} username={tweet.username} timestamp={tweet.timestamp} text={tweet.text} />
+        <Tweet key={i + tweet.text} fullname={tweet.fullname} username={tweet.username} timestamp={tweet.timestamp} text={tweet.text}/>
       );
     });
 

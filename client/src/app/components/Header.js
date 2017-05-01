@@ -3,23 +3,23 @@ import {Link} from 'react-router';
 
 export class Header extends React.Component {
   render() {
-    var anchorStyle = {
-      color: 'inherit'
+    const anchorStyle = {
+      color: 'inherit',
     };
 
-    var headerStyle = {
+    const headerStyle = {
       backgroundImage: 'url(http://localhost:8080/app/header.jpg)',
       backgroundSize: '100%',
-      color: 'white'
+      color: 'white',
     };
 
-    var listItemStyle = {
+    const listItemStyle = {
       display: 'inline',
-      margin: '0 5px'
+      margin: '0 5px',
     };
 
-    var listStyle = {
-      listStyleType: 'none'
+    const listStyle = {
+      listStyleType: 'none',
     };
 
     return (
