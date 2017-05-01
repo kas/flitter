@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Tweet } from './Tweet';
+import {Tweet} from './Tweet';
 
 export class Feed extends React.Component {
   constructor(props) {
