@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Tweet} from './Tweet';
 
-export class Feed extends React.Component {
+export class Tweets extends React.Component {
   constructor(props) {
     super(props);
 
@@ -12,16 +12,16 @@ export class Feed extends React.Component {
   }
 
   componentDidMount() {
-    this.TweetList(this.props);
+    this.getTweets(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.params.username !== nextProps.params.username) {
-      this.TweetList(nextProps);
+      this.getTweets(nextProps);
     }
   }
 
-  TweetList(props) {
+  getTweets(props) {
     let url = 'http://localhost:8000/api/tweet';
 
     if (props.params.username) {

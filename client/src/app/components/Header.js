@@ -33,8 +33,7 @@ export class Header extends React.Component {
           <div className="small-3 columns">
             <ul style={listStyle}>
               <li style={listItemStyle}><Link to={'/'} style={anchorStyle}>Feed</Link></li>
-              <li style={listItemStyle}><Link to={'/'} style={anchorStyle}>Hashtags</Link></li>
-              <li style={listItemStyle}><Link to={'/'} style={anchorStyle}>About</Link></li>
+              <li style={listItemStyle}><Link to={'/hashtags'} style={anchorStyle}>Hashtags</Link></li>
             </ul>
           </div>
         </div>

@@ -38,6 +38,13 @@ app.get('/api/tweet/:username', cors(), (req, res) => {
   });
 });
 
+app.get('/api/hashtags', cors(), (req, res) => {
+  // get all tweets
+  pool.query('SELECT * FROM hashtags;', (err, result) => {
+    res.json(result.rows);
+  });
+});
+
 app.get('/create', (req, res) => {
   // create the database tables
   pool.query('CREATE TABLE accounts (username varchar(16) PRIMARY KEY, fullname varchar(50) NOT NULL, email varchar(50), join_date timestamp DEFAULT CURRENT_DATE, bio varchar(300));\

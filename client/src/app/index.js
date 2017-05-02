@@ -2,16 +2,18 @@ import React from 'react';
 import {render} from 'react-dom';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 
-import {Feed} from './components/Feed';
+import {Hashtags} from './components/Hashtags';
 import {Root} from './components/Root';
+import {Tweets} from './components/Tweets';
 
 class App extends React.Component {
   render() {
     return (
       <Router history={browserHistory}>
         <Route path={'/'} component={Root}>
-          <IndexRoute component={Feed} />
-          <Route path={':username'} component={Feed} />
+          <IndexRoute component={Tweets} />
+          <Route path={'hashtags'} component={Hashtags} />
+          <Route path={':username'} component={Tweets} />
         </Route>
       </Router>
     );

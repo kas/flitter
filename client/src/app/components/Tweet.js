@@ -12,7 +12,7 @@ export class Tweet extends React.Component {
     };
 
     return (
-      <div style={tweetStyle} className="float-center">
+      <div className="float-center" style={tweetStyle}>
         <h5>{this.props.fullname}</h5>
         <p><Link to={'/' + this.props.username}>@{this.props.username}</Link></p>
         <p>{this.props.timestamp}</p>
