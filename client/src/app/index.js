@@ -11,7 +11,7 @@ class App extends React.Component {
       <Router history={browserHistory}>
         <Route path={'/'} component={Root}>
           <IndexRoute component={Feed} />
-          <Route path={'/:user'} component={Feed} />
+          <Route path={':username'} component={Feed} />
         </Route>
       </Router>
     );

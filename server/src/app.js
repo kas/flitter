@@ -29,11 +29,11 @@ app.get('/api/tweet', cors(), (req, res) => {
   });
 });
 
-app.get('/api/tweet/:user', cors(), (req, res) => {
+app.get('/api/tweet/:username', cors(), (req, res) => {
   // get all tweets by user
-  const user = req.params.user;
+  const username = req.params.username;
 
-  pool.query(`SELECT * FROM tweets WHERE username = '${user}';`, (err, result) => {
+  pool.query(`SELECT * FROM tweets WHERE username = '${username}';`, (err, result) => {
     res.json(result.rows);
   });
 });

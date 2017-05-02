@@ -12,18 +12,20 @@ export class Feed extends React.Component {
   }
 
   componentDidMount() {
-    this.TweetList();
+    this.TweetList(this.props);
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    this.TweetList();
+  componentWillReceiveProps(nextProps) {
+    if (this.props.params.username !== nextProps.params.username) {
+      this.TweetList(nextProps);
+    }
   }
 
-  TweetList() {
+  TweetList(props) {
     let url = 'http://localhost:8000/api/tweet';
 
-    if (this.props.params.user) {
-      url += '/' + this.props.params.user;
+    if (props.params.username) {
+      url += '/' + props.params.username;
     }
 
     return fetch(url)
@@ -39,24 +41,22 @@ export class Feed extends React.Component {
       backgroundSize: '100%',
     };
 
-    const userHeaderStyle = {
+    const usernameHeaderStyle = {
       color: 'white',
       fontWeight: 'bold',
       textAlign: 'center',
     };
 
-    const tweets = this.state.tweets.map((tweet, i) => {
-      return (
-        <Tweet key={i + tweet.text} fullname={tweet.fullname} username={tweet.username} timestamp={tweet.timestamp} text={tweet.text}/>
-      );
-    });
+    const tweets = this.state.tweets.map((tweet, i) => 
+      <Tweet key={i + tweet.text} fullname={tweet.fullname} username={tweet.username} timestamp={tweet.timestamp} text={tweet.text} />,
+    );
 
-    const userHeader = <h3 style={userHeaderStyle}>Showing tweets for {this.props.params.user}</h3>;
+    if (this.props.params.username) {
+      const usernameHeader = <h3 style={usernameHeaderStyle}>Showing tweets for @{this.props.params.username}</h3>;
 
-    if (this.props.params.user) {
       return (
         <div style={feedStyle}>
-          {userHeader}
+          {usernameHeader}
           {tweets}
         </div>
       );
