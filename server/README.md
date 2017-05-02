@@ -17,7 +17,7 @@
 
 `npm start`
 
-## To fill the database with accounts and tweets
+## To fill the database with accounts, tweets, and hashtags
 1. Visit http://localhost:8000/create
 2. Visit http://localhost:8000/insert
 

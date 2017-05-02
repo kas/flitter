@@ -4,7 +4,7 @@ import express from 'express';
 import morgan from 'morgan';
 
 // our packages
-import {logger} from './util';
+import { logger } from './util';
 import pool from './db/pg';
 
 // init app
@@ -13,7 +13,7 @@ const app = express();
 app.disable('x-powered-by');
 
 // set up logging
-app.use(morgan('combined', {stream: logger.stream}));
+app.use(morgan('combined', { stream: logger.stream }));
 
 // app.VERB in Express documentation
 // get and post are most common verbs
@@ -48,10 +48,10 @@ app.get('/create', (req, res) => {
   ALTER TABLE usages ADD CONSTRAINT fk2 FOREIGN KEY (tweet_id) REFERENCES tweets (tweet_id);\
   ALTER TABLE usages ADD CONSTRAINT fk3 FOREIGN KEY (text) REFERENCES hashtags;\
   ALTER TABLE usages ADD PRIMARY KEY (tweet_id, text);', (err, result) => {
-    if (err) {
-      logger.error(err.message);
-    }
-  });
+      if (err) {
+        logger.error(err.message);
+      }
+    });
 
   res.send('Created the database tables');
 });
@@ -206,7 +206,152 @@ app.get('/insert', (req, res) => {
     }
   });
 
-  res.send('Inserted accounts and tweets into the database');
+  // Iraqi Day tweets
+  pool.query(`INSERT INTO accounts (username, fullname, bio) VALUES ('iraqi_day', 'Iraqi Day', 'Viral and Trending Iraq news • Focused on Iraqi Affairs • اخبار العراق My loyalty belongs to #Iraq only and not the political game.');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  pool.query(`INSERT INTO tweets (tweet_id, username, text) VALUES (21, 'iraqi_day', '#BREAKING #Iraqi intelligence arrested a #ISIS militant in west #Baghdad that was gathering information on checkpoint & pilgrims movement.');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  // extra accounts
+  pool.query(`INSERT INTO accounts (username, fullname, bio) VALUES ('kanyewest', 'Kanye West', 'KANYEWEST.COM');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  pool.query(`INSERT INTO accounts (username, fullname, bio) VALUES ('Amy_Siskind', 'Amy Siskind', 'Amy Siskind, President and Co-Founder of The New Agenda. Siskind is an advocate for women''s, LGBTQ rights, equality. http://bit.ly/2d0BuwB');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  pool.query(`INSERT INTO accounts (username, fullname, bio) VALUES ('rihanna', 'Rihanna', 'Get #ANTI now: http://smarturl.it/daANTI');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  pool.query(`INSERT INTO accounts (username, fullname, bio) VALUES ('JustinTrudeau', 'Justin Trudeau', 'Account run by the 23rd Prime Minister of Canada and staff… Compte géré par le 23e premier ministre du Canada et personnel.');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  pool.query(`INSERT INTO accounts (username, fullname, bio) VALUES ('penn_state', 'Penn State', 'The official Twitter account of Penn State. #PennState');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  // hashtags
+  pool.query(`INSERT INTO hashtags VALUES ('#FCBayern');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  pool.query(`INSERT INTO hashtags VALUES ('#B04FCB');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  pool.query(`INSERT INTO hashtags VALUES ('#RMAFCB');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  pool.query(`INSERT INTO hashtags VALUES ('#MiaSanMia');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  pool.query(`INSERT INTO hashtags VALUES ('#Assad');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  pool.query(`INSERT INTO hashtags VALUES ('#MiddleEast');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  pool.query(`INSERT INTO hashtags VALUES ('#Baghdad');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  pool.query(`INSERT INTO hashtags VALUES ('#Iraqi');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  pool.query(`INSERT INTO hashtags VALUES ('#ISIS');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  pool.query(`INSERT INTO hashtags VALUES ('#BREAKING');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+  });
+
+  res.send('Inserted accounts, tweets, and hashtags into the database');
+});
+
+app.get('/export', (req, res) => {
+  // export accounts table 
+  pool.query(`SELECT table_to_xml('accounts', true, false, '');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+
+    console.log(result.rows[0]['table_to_xml']);
+  });
+
+  // export tweets table 
+  pool.query(`SELECT table_to_xml('tweets', true, false, '');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+
+    console.log(result.rows[0]['table_to_xml']);
+  });
+
+  // export hashtags table 
+  pool.query(`SELECT table_to_xml('hashtags', true, false, '');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+
+    console.log(result.rows[0]['table_to_xml']);
+  });
+
+  // export usages table 
+  pool.query(`SELECT table_to_xml('usages', true, false, '');`, (err, result) => {
+    if (err) {
+      logger.error(err.message);
+    }
+
+    console.log(result.rows[0]['table_to_xml']);
+  });
+
+  res.send('Output xml to console');
 });
 
 app.get('/headers', (req, res) => {
