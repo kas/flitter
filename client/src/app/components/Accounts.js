@@ -1,25 +1,26 @@
+import {Link} from 'react-router';
 import React from 'react';
 
-export class Hashtags extends React.Component {
+export class Accounts extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      hashtags: [],
+      accounts: [],
     };
   }
 
   componentDidMount() {
-    this.getHashtags();
+    this.getAccounts();
   }
 
-  getHashtags() {
-    const url = 'http://localhost:8000/api/hashtags';
+  getAccounts() {
+    const url = 'http://localhost:8000/api/accounts';
 
     return fetch(url)
       .then(response => response.json())
       .then((json) => {
-        this.setState({hashtags: json});
+        this.setState({accounts: json});
       });
   }
 
@@ -32,20 +33,19 @@ export class Hashtags extends React.Component {
     const ulStyle = {
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
       color: 'white',
-      fontWeight: 'bold',
       listStyleType: 'none',
       textAlign: 'center',
       width: 500,
     };
 
-    const hashtags = this.state.hashtags.map((hashtag, i) =>
-      <li key={i + hashtag.text}>{hashtag.text}</li>,
+    const accounts = this.state.accounts.map((account, i) =>
+      <li key={i + account.username}><b>{account.fullname} (<Link to={'/' + account.username}>@{account.username}</Link>)</b><br />{account.bio}</li>,
     );
 
     return (
       <div style={feedStyle}>
         <ul className="float-center" style={ulStyle}>
-          {hashtags}
+          {accounts}
         </ul>
       </div>
     );

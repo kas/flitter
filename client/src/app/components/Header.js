@@ -1,6 +1,5 @@
-import React from 'react';
-
 import {Link} from 'react-router';
+import React from 'react';
 
 export class Header extends React.Component {
   render() {
@@ -34,6 +33,7 @@ export class Header extends React.Component {
             <ul style={listStyle}>
               <li style={listItemStyle}><Link to={'/'} style={anchorStyle}>Feed</Link></li>
               <li style={listItemStyle}><Link to={'/hashtags'} style={anchorStyle}>Hashtags</Link></li>
+              <li style={listItemStyle}><Link to={'/accounts'} style={anchorStyle}>Accounts</Link></li>
             </ul>
           </div>
         </div>

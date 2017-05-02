@@ -39,8 +39,15 @@ app.get('/api/tweet/:username', cors(), (req, res) => {
 });
 
 app.get('/api/hashtags', cors(), (req, res) => {
-  // get all tweets
+  // get all hashtags
   pool.query('SELECT * FROM hashtags;', (err, result) => {
+    res.json(result.rows);
+  });
+});
+
+app.get('/api/accounts', cors(), (req, res) => {
+  // get all accounts
+  pool.query('SELECT * FROM accounts;', (err, result) => {
     res.json(result.rows);
   });
 });
