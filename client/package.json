@@ -8,8 +8,8 @@
     "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline --hot --history-api-fallback",
     "build:prod": "webpack -p && cp src/index.html dist/index.html"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Kenneth Schnall <kenneth.schnall@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
